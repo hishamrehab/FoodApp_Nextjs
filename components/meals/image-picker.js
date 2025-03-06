@@ -21,10 +21,9 @@ export default function ImagePicker({label , name }) {
       
   const fileReader  =  new FileReader();
     
-  fileReader.onload  = () =>{
+  fileReader.onload  = () => {
     setPickedImage(fileReader.result);
   }
-
 
   fileReader.readAsDataURL(file);
 }
@@ -37,8 +36,12 @@ export default function ImagePicker({label , name }) {
          </label>
         <div className={classes.controls}>
             <div className={classes.preview} >
-                {!pickedImage&& <p>No Image picked yet.</p> }
-                {pickedImage && <Image src={pickedImage} alt="The Image Selected by the User." fill/>}
+                {!pickedImage && <p>No Image picked yet.</p> }
+                {pickedImage  && <Image 
+                 src={pickedImage} 
+                 alt="The Image Selected by the User."
+                 fill
+                 />}
             </div>
             <input 
             className={classes.input}
@@ -49,9 +52,8 @@ export default function ImagePicker({label , name }) {
             ref={imageInput}
             onChange={handleImageChange}
             />
-
             <button className={classes.button} type="button" onClick={handlePickClick}>
-                Pick an Image
+             Pick an Image
             </button>
         </div>
         </div>
